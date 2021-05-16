@@ -31,12 +31,12 @@ namespace BooksLibrary
         {
             this.buttonReturn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelAmount = new System.Windows.Forms.Label();
-            this.hScrollBarAmountBooks = new System.Windows.Forms.HScrollBar();
             this.comboBoxSelectBook = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.numericSelectAmount = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSelectAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonReturn
@@ -58,26 +58,6 @@ namespace BooksLibrary
             this.label1.Size = new System.Drawing.Size(254, 25);
             this.label1.TabIndex = 62;
             this.label1.Text = "Оформить возврат книги";
-            // 
-            // labelAmount
-            // 
-            this.labelAmount.AutoSize = true;
-            this.labelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAmount.Location = new System.Drawing.Point(236, 121);
-            this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(18, 20);
-            this.labelAmount.TabIndex = 70;
-            this.labelAmount.Text = "0";
-            // 
-            // hScrollBarAmountBooks
-            // 
-            this.hScrollBarAmountBooks.LargeChange = 1;
-            this.hScrollBarAmountBooks.Location = new System.Drawing.Point(26, 155);
-            this.hScrollBarAmountBooks.Maximum = 0;
-            this.hScrollBarAmountBooks.Name = "hScrollBarAmountBooks";
-            this.hScrollBarAmountBooks.Size = new System.Drawing.Size(631, 28);
-            this.hScrollBarAmountBooks.TabIndex = 69;
-            this.hScrollBarAmountBooks.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBarAmountBooks_Scroll);
             // 
             // comboBoxSelectBook
             // 
@@ -120,13 +100,22 @@ namespace BooksLibrary
             this.label2.TabIndex = 65;
             this.label2.Text = "Ввеберете книгу:";
             // 
+            // numericSelectAmount
+            // 
+            this.numericSelectAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericSelectAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericSelectAmount.Location = new System.Drawing.Point(236, 121);
+            this.numericSelectAmount.Name = "numericSelectAmount";
+            this.numericSelectAmount.Size = new System.Drawing.Size(120, 22);
+            this.numericSelectAmount.TabIndex = 69;
+            this.numericSelectAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MenuReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(666, 329);
-            this.Controls.Add(this.labelAmount);
-            this.Controls.Add(this.hScrollBarAmountBooks);
+            this.Controls.Add(this.numericSelectAmount);
             this.Controls.Add(this.comboBoxSelectBook);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -139,6 +128,7 @@ namespace BooksLibrary
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "MenuReturn";
             this.Load += new System.EventHandler(this.MenuReturn_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericSelectAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,11 +137,10 @@ namespace BooksLibrary
         #endregion
         private System.Windows.Forms.Button buttonReturn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelAmount;
-        private System.Windows.Forms.HScrollBar hScrollBarAmountBooks;
         private System.Windows.Forms.ComboBox comboBoxSelectBook;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown numericSelectAmount;
     }
 }

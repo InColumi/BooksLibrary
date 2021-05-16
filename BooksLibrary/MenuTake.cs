@@ -21,23 +21,25 @@ namespace BooksLibrary
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CBook book;
+            Book book;
             if (General.TryGetComboBoxData(comboBoxSelectBooks, out book))
             {
                 try
                 {
-                    book.TakeBook(hScrollBarAmountBooks.Value);
+                    book.TakeBook(int.Parse(numericSelectAmount.Value.ToString()));
+                    MessageBox.Show($"Книга: {book.ToString()} взята.\n" +
+                        $"Осталось {book.AvailableCopies}");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
 
-                General.UpdateScrollBar(hScrollBarAmountBooks, book.AvailableCopies);
+                General.UpdateNumericUpDown(numericSelectAmount, book.AvailableCopies);
             }
             else
             {
-                General.ShowMessageAndClear("Книга не найдена!", labelAmount, hScrollBarAmountBooks);
+                General.ShowMessageAndClear("Книга не найдена!", numericSelectAmount);
             }           
         }
 
@@ -48,20 +50,15 @@ namespace BooksLibrary
 
         private void comboBoxMenuTake_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CBook book;
+            Book book;
             if (General.TryGetComboBoxData(comboBoxSelectBooks, out book))
             {
-                General.UpdateScrollBar(hScrollBarAmountBooks, book.AvailableCopies);
+                General.UpdateNumericUpDown(numericSelectAmount, book.AvailableCopies);
             }
             else
             {
-                General.ShowMessageAndClear("Книга не найдена!", labelAmount, hScrollBarAmountBooks);
+                General.ShowMessageAndClear("Книга не найдена!", numericSelectAmount);
             }
-        }
-
-        private void hScrollBarMenuTake_Scroll(object sender, ScrollEventArgs e)
-        {
-            labelAmount.Text = hScrollBarAmountBooks.Value.ToString();
         }
     }
 }

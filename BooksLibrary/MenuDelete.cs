@@ -21,15 +21,17 @@ namespace BooksLibrary
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CBook book;
+            Book book;
             if (comboBoxSelectBook.SelectedItem != null)
             {
                 if (General.TryGetComboBoxData(comboBoxSelectBook, out book))
                 {
                     try
                     {
-                        book.Delete();
+                        BookList.Delete(book);
                         MessageBox.Show("Книга удалена!");
+                        comboBoxSelectBook.Items.Clear();
+                        General.AddBooksToComboBox(comboBoxSelectBook);
                     }
                     catch (Exception ex)
                     {

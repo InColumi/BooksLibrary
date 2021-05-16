@@ -21,12 +21,12 @@ namespace BooksLibrary
 
         private void button1_Click(object sender, EventArgs e)
         {
-            CBook book;
+            Book book;
             if (General.TryGetComboBoxData(comboBoxSelectBooks, out book))
             {
                 try
                 {
-                    textBox2.Text = book.Info();
+                    textBox2.Text = book.ToString();
                 }
                 catch (Exception)
                 {

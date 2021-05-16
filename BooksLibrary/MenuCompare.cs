@@ -29,8 +29,8 @@ namespace BooksLibrary
         {
             try
             {
-                var book1 = CBook.GetByName(comboBoxFirstBook.SelectedItem.ToString());
-                var book2 = CBook.GetByName(comboBoxSecondBook.SelectedItem.ToString());
+                var book1 = BookList.GetByName(comboBoxFirstBook.SelectedItem.ToString());
+                var book2 = BookList.GetByName(comboBoxSecondBook.SelectedItem.ToString());
                 if (book1 is null)
                 {
                     MessageBox.Show("Книга #1 не найдена!");

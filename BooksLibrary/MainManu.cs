@@ -5,8 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CBookLib;
 
@@ -14,80 +12,72 @@ namespace BooksLibrary
 {
     public partial class MainManu : Form
     {
+       private Random _rand = new Random();
         public MainManu()
         {
             InitializeComponent();
-            RedBlackTree<int> zx = new RedBlackTree<int>();
-            zx.Add(5);
-            zx.Add(2);
-            zx.Add(8);
-            zx.Add(1);
-            zx.Add(3);
-            zx.Delete(5);
-            new CBook("1", "1", 1, 2, 3, 0);
+            GenegateBooks(100);
             RefreshData();
+        }
 
+        /// <summary>
+        /// Генерирует список книг
+        /// </summary>
+        /// <param name="count">кол-во</param>
+        private void GenegateBooks(int count)
+        {
+            for (int i = 1; i <= count; i++)
+            {
+                BookList.Add(new Book($"Книга_с_названием_{i}", $"Автор_{i}", _rand.Next(100, 1000), _rand.Next(1800, 2021), _rand.Next(50, 100), _rand.Next(0, 50)));
+            }
         }
 
         void RefreshData()
         {
-            listBox1.DataSource = CBook.Books.List.Select(b => b.Info()).ToList();
+            listBox1.DataSource = BookList.Books.List.Select(b => b.ToString()).ToList();
+        }
+
+        private void ShowForm(Form form)
+        {
+            Hide();
+            form.ShowDialog();
+            Show();
+            RefreshData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuAddNew().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuAddNew());
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuDelete().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuDelete());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuInfo().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuInfo());
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuGetStat().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuGetStat());
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuTake().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuTake());
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuReturn().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuReturn());
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            Hide();
-            new MenuCompare().ShowDialog();
-            Show();
-            RefreshData();
+            ShowForm(new MenuCompare());
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -104,7 +94,7 @@ namespace BooksLibrary
                     string[] data = line.Split(' ');
                     try
                     {
-                        new CBook(data[0], data[1], int.Parse(data[2]), int.Parse(data[3]), int.Parse(data[4]), int.Parse(data[5]));
+                        BookList.Add(new Book(data[0], data[1], int.Parse(data[2]), int.Parse(data[3]), int.Parse(data[4]), int.Parse(data[5])));
                     }
                     catch
                     {
@@ -121,10 +111,10 @@ namespace BooksLibrary
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                string[] lines = new string[CBook.Count];
+                string[] lines = new string[BookList.Count];
                 for (int i = 0; i < lines.Length; i++)
                 {
-                    lines[i] = string.Join(" ", new string[] { CBook.Books.List[i].Name, CBook.Books.List[i].Author, CBook.Books.List[i].Pages.ToString(), CBook.Books.List[i].Year.ToString(), CBook.Books.List[i].CopiesAll.ToString(), CBook.Books.List[i].CopiesReaders.ToString() });
+                    lines[i] = string.Join(" ", new string[] { BookList.Books.List[i].Name, BookList.Books.List[i].Author, BookList.Books.List[i].Pages.ToString(), BookList.Books.List[i].Year.ToString(), BookList.Books.List[i].CopiesAll.ToString(), BookList.Books.List[i].CopiesReaders.ToString() });
                 }
                 File.WriteAllLines(dlg.FileName, lines);
             }

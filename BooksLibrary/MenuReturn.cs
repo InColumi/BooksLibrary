@@ -19,11 +19,6 @@ namespace BooksLibrary
             InitializeComponent();
         }
 
-        private void hScrollBarAmountBooks_Scroll(object sender, ScrollEventArgs e)
-        {
-            labelAmount.Text = hScrollBarAmountBooks.Value.ToString();
-        }
-
         private void MenuReturn_Load(object sender, EventArgs e)
         {
             General.AddBooksToComboBox(comboBoxSelectBook);
@@ -31,37 +26,39 @@ namespace BooksLibrary
 
         private void buttonReturn_Click(object sender, EventArgs e)
         {
-            CBook book;
+            Book book;
             if (General.TryGetComboBoxData(comboBoxSelectBook, out book))
             {
                 try
                 {
-                    book.ReturnBook(hScrollBarAmountBooks.Value);
+                    book.ReturnBook(int.Parse(numericSelectAmount.Value.ToString()));
+                    MessageBox.Show($"Книга: {book.ToString()} возвращена.\n" +
+                        $"Осталось {book.AvailableCopies}");
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-
-                General.UpdateScrollBar(hScrollBarAmountBooks, book.AvailableCopies);
+                
+                General.UpdateNumericUpDown(numericSelectAmount, book.AvailableCopies);
             }
             else
             {
-                General.ShowMessageAndClear("Книга не найдена!", labelAmount, hScrollBarAmountBooks);
+                General.ShowMessageAndClear("Книга не найдена!", numericSelectAmount);
                 return;
             }
         }
 
         private void comboBoxSelectBook_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CBook book;
+            Book book;
             if (General.TryGetComboBoxData(comboBoxSelectBook, out book))
             {
-                General.UpdateScrollBar(hScrollBarAmountBooks, book.AvailableCopies);
+                General.UpdateNumericUpDown(numericSelectAmount, book.AvailableCopies);
             }
             else
             {
-                General.ShowMessageAndClear("Книга не найдена!", labelAmount, hScrollBarAmountBooks);
+                General.ShowMessageAndClear("Книга не найдена!", numericSelectAmount);
                 return;
             }
         }

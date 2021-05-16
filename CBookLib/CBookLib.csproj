@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CBook.cs" />
+    <Compile Include="Book.cs" />
+    <Compile Include="BookList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedBlackNode.cs" />
     <Compile Include="RedBlackTree.cs" />

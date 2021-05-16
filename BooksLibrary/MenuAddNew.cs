@@ -22,11 +22,18 @@ namespace BooksLibrary
         {
             try
             {
-                CBook book = new CBook(textBox1.Text,textBox2.Text,int.Parse(textBox3.Text), int.Parse(textBox4.Text), int.Parse(textBox5.Text), int.Parse(textBox6.Text));
-                MessageBox.Show("Книга добавлена! Ее индекс: "+book.Key);
+                BookList.Add(new Book( 
+                    textBox1.Text,
+                    textBox2.Text,
+                    int.Parse(textBox3.Text),
+                    int.Parse(textBox4.Text),
+                    int.Parse(textBox5.Text),
+                    int.Parse(textBox6.Text)
+                    ));
+                MessageBox.Show("Книга добавлена!");
                 Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }

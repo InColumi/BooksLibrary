@@ -35,8 +35,8 @@ namespace BooksLibrary
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxSelectBooks = new System.Windows.Forms.ComboBox();
-            this.hScrollBarAmountBooks = new System.Windows.Forms.HScrollBar();
-            this.labelAmount = new System.Windows.Forms.Label();
+            this.numericSelectAmount = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericSelectAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonTake
@@ -100,33 +100,22 @@ namespace BooksLibrary
             this.comboBoxSelectBooks.TabIndex = 62;
             this.comboBoxSelectBooks.SelectedIndexChanged += new System.EventHandler(this.comboBoxMenuTake_SelectedIndexChanged);
             // 
-            // hScrollBarAmountBooks
+            // numericSelectAmount
             // 
-            this.hScrollBarAmountBooks.LargeChange = 1;
-            this.hScrollBarAmountBooks.Location = new System.Drawing.Point(18, 159);
-            this.hScrollBarAmountBooks.Maximum = 0;
-            this.hScrollBarAmountBooks.Name = "hScrollBarAmountBooks";
-            this.hScrollBarAmountBooks.Size = new System.Drawing.Size(631, 28);
-            this.hScrollBarAmountBooks.TabIndex = 63;
-            this.hScrollBarAmountBooks.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBarMenuTake_Scroll);
-            // 
-            // labelAmount
-            // 
-            this.labelAmount.AutoSize = true;
-            this.labelAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelAmount.Location = new System.Drawing.Point(228, 125);
-            this.labelAmount.Name = "labelAmount";
-            this.labelAmount.Size = new System.Drawing.Size(18, 20);
-            this.labelAmount.TabIndex = 64;
-            this.labelAmount.Text = "0";
+            this.numericSelectAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.numericSelectAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericSelectAmount.Location = new System.Drawing.Point(228, 125);
+            this.numericSelectAmount.Name = "numericSelectAmount";
+            this.numericSelectAmount.Size = new System.Drawing.Size(120, 22);
+            this.numericSelectAmount.TabIndex = 65;
+            this.numericSelectAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MenuTake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 315);
-            this.Controls.Add(this.labelAmount);
-            this.Controls.Add(this.hScrollBarAmountBooks);
+            this.Controls.Add(this.numericSelectAmount);
             this.Controls.Add(this.comboBoxSelectBooks);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -139,6 +128,7 @@ namespace BooksLibrary
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " MenuTake";
             this.Load += new System.EventHandler(this.MenuTake_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numericSelectAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,7 +141,6 @@ namespace BooksLibrary
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxSelectBooks;
-        private System.Windows.Forms.HScrollBar hScrollBarAmountBooks;
-        private System.Windows.Forms.Label labelAmount;
+        private System.Windows.Forms.NumericUpDown numericSelectAmount;
     }
 }

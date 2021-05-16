@@ -28,7 +28,7 @@ namespace BooksLibrary
         {
             try
             {
-                var book = CBook.GetByName(comboBoxMenuGetStat.SelectedItem.ToString());
+                var book = BookList.GetByName(comboBoxMenuGetStat.SelectedItem.ToString());
                 if (book is null)
                 {
                     MessageBox.Show("Книга не найдена!");
@@ -39,7 +39,7 @@ namespace BooksLibrary
                 }
                 textBox2.Text = book.AvailableCopies.ToString();
                 textBox3.Text = book.CopiesAll.ToString();
-                textBox4.Text = CBook.Count.ToString();
+                textBox4.Text = BookList.Count.ToString();
             }
             catch (Exception)
             {

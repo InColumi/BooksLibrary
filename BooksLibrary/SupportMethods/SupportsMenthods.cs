@@ -11,7 +11,7 @@ namespace BooksLibrary.SupportMethods
         /// <param name="box"></param>
         public static void AddBooksToComboBox(ComboBox box)
         {
-            var books = CBook.Books.List;
+            var books = BookList.Books.List;
 
             foreach (var book in books)
             {
@@ -24,7 +24,7 @@ namespace BooksLibrary.SupportMethods
         /// </summary>
         /// <param name="scrollBar"></param>
         /// <param name="value"></param>
-        public static void UpdateScrollBar(HScrollBar scrollBar, int value)
+        public static void UpdateNumericUpDown(NumericUpDown scrollBar, int value)
         {
             scrollBar.Minimum = 0;
             scrollBar.Maximum = value;
@@ -36,27 +36,27 @@ namespace BooksLibrary.SupportMethods
         /// <param name="box"></param>
         /// <param name="book"></param>
         /// <returns> если не null вернет значение</returns>
-        public static bool TryGetComboBoxData(ComboBox box, out CBook book)
+        public static bool TryGetComboBoxData(ComboBox box, out Book book)
         {
             book = null;
             if (box.SelectedItem != null)
             {
-                book = CBook.GetByName(box.SelectedItem.ToString());
+                book = BookList.GetByName(box.SelectedItem.ToString());
             }            
             return book is null == false;
         }
 
         /// <summary>
-        /// Выводит сообщение message и очищает label, bar
+        /// Выводит сообщение message и очищает NumericUpDown
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="label"></param>
         /// <param name="bar"></param>
-        public static void ShowMessageAndClear(string message, Label label, HScrollBar bar)
+        public static void ShowMessageAndClear(string message, NumericUpDown numeric)
         {
             MessageBox.Show(message);
-            label.Text = "0";
-            bar.Maximum = 0;
+            numeric.Value = 0;
         }
+
+
     }
 }
