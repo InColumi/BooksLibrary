@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7094B3E2-1B56-46F8-93FB-7009BF90ADA8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BooksLibrary</RootNamespace>
+    <AssemblyName>BooksLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MenuAddNew.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuAddNew.Designer.cs">
+      <DependentUpon>MenuAddNew.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuDelete.Designer.cs">
+      <DependentUpon>MenuDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainManu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainManu.Designer.cs">
+      <DependentUpon>MainManu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuInfo.Designer.cs">
+      <DependentUpon>MenuInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuCompare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuCompare.Designer.cs">
+      <DependentUpon>MenuCompare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="MenuReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuReturn.Designer.cs">
+      <DependentUpon>MenuReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuTake.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuTake.Designer.cs">
+      <DependentUpon>MenuTake.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MenuGetStat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuGetStat.Designer.cs">
+      <DependentUpon>MenuGetStat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupportMethods\SupportsMenthods.cs" />
+    <EmbeddedResource Include="MenuAddNew.resx">
+      <DependentUpon>MenuAddNew.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuDelete.resx">
+      <DependentUpon>MenuDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainManu.resx">
+      <DependentUpon>MainManu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuInfo.resx">
+      <DependentUpon>MenuInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuCompare.resx">
+      <DependentUpon>MenuCompare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MenuReturn.resx">
+      <DependentUpon>MenuReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuTake.resx">
+      <DependentUpon>MenuTake.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuGetStat.resx">
+      <DependentUpon>MenuGetStat.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CBookLib\CBookLib.csproj">
+      <Project>{83197d14-c496-4eab-84f6-75c6c7ac088e}</Project>
+      <Name>CBookLib</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
