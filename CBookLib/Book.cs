@@ -16,10 +16,12 @@ namespace CBookLib
         {
             SetBook(string.Empty, string.Empty, 0, 0, 0, 0);
         }
+
         public Book(string name, string author, int pages, int year, int copiesAll, int copiesReaders)
         {
             SetBook(name, author, pages, year, copiesAll, copiesReaders);
         }
+
         public Book(Book book)
         {
             SetBook(book.Name, book.Author, book.Pages, book.Year, book.CopiesAll, book.CopiesReaders);
@@ -90,6 +92,11 @@ namespace CBookLib
             return $"Автор: {Author}, название: {Name}, количество страниц: {Pages}, год издания: {Year} г. Книг в библ.:{AvailableCopies}, на руках: {CopiesReaders}"; ;
         }
 
+        /// <summary>
+        /// Сравнение идет по имени книги !!!!!!
+        /// </summary>
+        /// <param name="book"></param>
+        /// <returns></returns>
         public int CompareTo(Book book)
         { 
             return Name.CompareTo(book.Name);
