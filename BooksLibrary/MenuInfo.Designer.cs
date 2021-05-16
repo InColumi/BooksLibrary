@@ -73,6 +73,7 @@ namespace BooksLibrary
             this.comboBoxSelectBooks.Size = new System.Drawing.Size(617, 21);
             this.comboBoxSelectBooks.Sorted = true;
             this.comboBoxSelectBooks.TabIndex = 63;
+            this.comboBoxSelectBooks.SelectedValueChanged += new System.EventHandler(this.comboBoxSelectBooks_SelectedValueChanged);
             // 
             // MenuInfo
             // 

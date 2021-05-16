@@ -16,20 +16,6 @@ namespace BooksLibrary
         public MainManu()
         {
             InitializeComponent();
-            GenegateBooks(100);
-            RefreshData();
-        }
-
-        /// <summary>
-        /// Генерирует список книг
-        /// </summary>
-        /// <param name="count">кол-во</param>
-        private void GenegateBooks(int count)
-        {
-            for (int i = 1; i <= count; i++)
-            {
-                BookList.Add(new Book($"Книга_с_названием_{i}", $"Автор_{i}", _rand.Next(100, 1000), _rand.Next(1800, 2021), _rand.Next(50, 100), _rand.Next(0, 50)));
-            }
         }
 
         void RefreshData()
@@ -111,13 +97,15 @@ namespace BooksLibrary
             SaveFileDialog dlg = new SaveFileDialog();
             if (dlg.ShowDialog() == DialogResult.OK)
             {
-                string[] lines = new string[BookList.Count];
-                for (int i = 0; i < lines.Length; i++)
+                using (StreamWriter writer = new StreamWriter(dlg.FileName))
                 {
-                    lines[i] = string.Join(" ", new string[] { BookList.Books.List[i].Name, BookList.Books.List[i].Author, BookList.Books.List[i].Pages.ToString(), BookList.Books.List[i].Year.ToString(), BookList.Books.List[i].CopiesAll.ToString(), BookList.Books.List[i].CopiesReaders.ToString() });
-                }
-                File.WriteAllLines(dlg.FileName, lines);
-            }
+                    foreach (var book in BookList.Books.List)
+                    {
+                        writer.WriteLine(book.ToString());
+                    }
+                    MessageBox.Show($"Данные записаны в файл: {dlg.FileName}");
+                }  
+            }      
         }
     }
 }

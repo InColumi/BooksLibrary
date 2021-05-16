@@ -95,6 +95,7 @@ namespace BooksLibrary
             this.comboBoxFirstBook.Location = new System.Drawing.Point(145, 98);
             this.comboBoxFirstBook.Name = "comboBoxFirstBook";
             this.comboBoxFirstBook.Size = new System.Drawing.Size(532, 21);
+            this.comboBoxFirstBook.Sorted = true;
             this.comboBoxFirstBook.TabIndex = 76;
             // 
             // comboBoxSecondBook
@@ -104,6 +105,7 @@ namespace BooksLibrary
             this.comboBoxSecondBook.Location = new System.Drawing.Point(145, 124);
             this.comboBoxSecondBook.Name = "comboBoxSecondBook";
             this.comboBoxSecondBook.Size = new System.Drawing.Size(532, 21);
+            this.comboBoxSecondBook.Sorted = true;
             this.comboBoxSecondBook.TabIndex = 77;
             // 
             // MenuCompare

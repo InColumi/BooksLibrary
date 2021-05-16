@@ -19,7 +19,12 @@ namespace BooksLibrary
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MenuInfo_Load(object sender, EventArgs e)
+        {
+            General.AddBooksToComboBox(comboBoxSelectBooks);
+        }
+
+        private void comboBoxSelectBooks_SelectedValueChanged(object sender, EventArgs e)
         {
             Book book;
             if (General.TryGetComboBoxData(comboBoxSelectBooks, out book))
@@ -38,11 +43,6 @@ namespace BooksLibrary
                 MessageBox.Show("Книга не найдена!");
                 textBox2.Clear();
             }
-        }
-
-        private void MenuInfo_Load(object sender, EventArgs e)
-        {
-            General.AddBooksToComboBox(comboBoxSelectBooks);
         }
     }
 }

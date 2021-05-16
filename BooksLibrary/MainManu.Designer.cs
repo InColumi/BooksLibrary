@@ -54,7 +54,7 @@ namespace BooksLibrary
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(264, 27);
+            this.label1.Location = new System.Drawing.Point(485, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 29);
             this.label1.TabIndex = 1;
@@ -150,7 +150,7 @@ namespace BooksLibrary
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
-            // StartMenu
+            // MainManu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -168,7 +168,7 @@ namespace BooksLibrary
             this.Controls.Add(this.label1);
             this.Controls.Add(this.listBox1);
             this.DoubleBuffered = true;
-            this.Name = "StartMenu";
+            this.Name = "MainManu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Библиотека";
             this.ResumeLayout(false);
