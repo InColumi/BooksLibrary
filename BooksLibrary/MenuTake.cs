@@ -26,7 +26,7 @@ namespace BooksLibrary
             {
                 try
                 {
-                    book.TakeBook(int.Parse(numericSelectAmount.Value.ToString()));
+                    book.TakeBook(int.Parse(textBoxAmount.Text));
                     MessageBox.Show($"Книга: {book.ToString()} взята.\n" +
                         $"Осталось {book.AvailableCopies}");
                 }
@@ -34,12 +34,10 @@ namespace BooksLibrary
                 {
                     MessageBox.Show(ex.Message);
                 }
-
-                General.UpdateNumericUpDown(numericSelectAmount, book.AvailableCopies);
             }
             else
             {
-                General.ShowMessageAndClear("Книга не найдена!", numericSelectAmount);
+                General.ShowMessageAndClear("Книга не найдена!", textBoxAmount);
             }           
         }
 
@@ -51,13 +49,9 @@ namespace BooksLibrary
         private void comboBoxMenuTake_SelectedIndexChanged(object sender, EventArgs e)
         {
             Book book;
-            if (General.TryGetComboBoxData(comboBoxSelectBooks, out book))
+            if (General.TryGetComboBoxData(comboBoxSelectBooks, out book) == false)
             {
-                General.UpdateNumericUpDown(numericSelectAmount, book.AvailableCopies);
-            }
-            else
-            {
-                General.ShowMessageAndClear("Книга не найдена!", numericSelectAmount);
+                General.ShowMessageAndClear("Книга не найдена!", textBoxAmount);
             }
         }
     }

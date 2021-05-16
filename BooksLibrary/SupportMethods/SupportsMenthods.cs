@@ -20,17 +20,6 @@ namespace BooksLibrary.SupportMethods
         }
 
         /// <summary>
-        /// Обновляет значение scrollBar на value
-        /// </summary>
-        /// <param name="scrollBar"></param>
-        /// <param name="value"></param>
-        public static void UpdateNumericUpDown(NumericUpDown scrollBar, int value)
-        {
-            scrollBar.Minimum = 0;
-            scrollBar.Maximum = value;
-        }
-
-        /// <summary>
         /// Пробует получить данные из box
         /// </summary>
         /// <param name="box"></param>
@@ -51,10 +40,10 @@ namespace BooksLibrary.SupportMethods
         /// </summary>
         /// <param name="message"></param>
         /// <param name="bar"></param>
-        public static void ShowMessageAndClear(string message, NumericUpDown numeric)
+        public static void ShowMessageAndClear(string message, TextBox box)
         {
             MessageBox.Show(message);
-            numeric.Value = 0;
+            box.Text = "0";
         }
 
 

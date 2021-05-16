@@ -35,8 +35,7 @@ namespace BooksLibrary
             this.label3 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBoxSelectBooks = new System.Windows.Forms.ComboBox();
-            this.numericSelectAmount = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSelectAmount)).BeginInit();
+            this.textBoxAmount = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonTake
@@ -100,22 +99,19 @@ namespace BooksLibrary
             this.comboBoxSelectBooks.TabIndex = 62;
             this.comboBoxSelectBooks.SelectedIndexChanged += new System.EventHandler(this.comboBoxMenuTake_SelectedIndexChanged);
             // 
-            // numericSelectAmount
+            // textBoxAmount
             // 
-            this.numericSelectAmount.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.numericSelectAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericSelectAmount.Location = new System.Drawing.Point(228, 125);
-            this.numericSelectAmount.Name = "numericSelectAmount";
-            this.numericSelectAmount.Size = new System.Drawing.Size(120, 22);
-            this.numericSelectAmount.TabIndex = 65;
-            this.numericSelectAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxAmount.Location = new System.Drawing.Point(228, 125);
+            this.textBoxAmount.Name = "textBoxAmount";
+            this.textBoxAmount.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAmount.TabIndex = 63;
             // 
             // MenuTake
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(661, 315);
-            this.Controls.Add(this.numericSelectAmount);
+            this.Controls.Add(this.textBoxAmount);
             this.Controls.Add(this.comboBoxSelectBooks);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label3);
@@ -128,7 +124,6 @@ namespace BooksLibrary
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = " MenuTake";
             this.Load += new System.EventHandler(this.MenuTake_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericSelectAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -141,6 +136,6 @@ namespace BooksLibrary
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox comboBoxSelectBooks;
-        private System.Windows.Forms.NumericUpDown numericSelectAmount;
+        private System.Windows.Forms.TextBox textBoxAmount;
     }
 }
