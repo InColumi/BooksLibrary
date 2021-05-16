@@ -96,7 +96,6 @@
     <Compile Include="MenuGetStat.Designer.cs">
       <DependentUpon>MenuGetStat.cs</DependentUpon>
     </Compile>
-    <Compile Include="SupportMethods\SupportsMenthods.cs" />
     <EmbeddedResource Include="MenuAddNew.resx">
       <DependentUpon>MenuAddNew.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BooksLibrary.SupportMethods;
 using CBookLib;
 
 namespace BooksLibrary
@@ -21,14 +13,25 @@ namespace BooksLibrary
 
         private void MenuInfo_Load(object sender, EventArgs e)
         {
-            General.AddBooksToComboBox(comboBoxSelectBooks);
+            var books = BookList.Books.List;
+
+            foreach (var bookItem in books)
+            {
+                comboBoxSelectBooks.Items.Add(bookItem.Name);
+            }
         }
 
         private void comboBoxSelectBooks_SelectedValueChanged(object sender, EventArgs e)
         {
             Book book;
-            if (General.TryGetComboBoxData(comboBoxSelectBooks, out book))
+            book = null;
+            if (comboBoxSelectBooks.SelectedItem != null)
             {
+                book = BookList.GetByName(comboBoxSelectBooks.SelectedItem.ToString());
+            }
+            if (book is null == false)
+            {
+
                 try
                 {
                     textBox2.Text = book.ToString();

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BooksLibrary.SupportMethods;
 using CBookLib;
 
 namespace BooksLibrary
@@ -21,8 +13,19 @@ namespace BooksLibrary
 
         private void MenuCompare_Load(object sender, EventArgs e)
         {
-            General.AddBooksToComboBox(comboBoxFirstBook);
-            General.AddBooksToComboBox(comboBoxSecondBook);
+            var books = BookList.Books.List;
+
+            foreach (var book in books)
+            {
+                comboBoxFirstBook.Items.Add(book.Name);
+            }
+
+            books = BookList.Books.List;
+
+            foreach (var book in books)
+            {
+                comboBoxSecondBook.Items.Add(book.Name);
+            }
         }
 
         private void buttonCompare_Click(object sender, EventArgs e)

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BooksLibrary.SupportMethods;
 using CBookLib;
 
 namespace BooksLibrary
@@ -21,13 +13,23 @@ namespace BooksLibrary
 
         private void MenuReturn_Load(object sender, EventArgs e)
         {
-            General.AddBooksToComboBox(comboBoxSelectBook);
+            var books = BookList.Books.List;
+
+            foreach (var bookItem in books)
+            {
+                comboBoxSelectBook.Items.Add(bookItem.Name);
+            }
         }
 
         private void buttonReturn_Click(object sender, EventArgs e)
         {
             Book book;
-            if (General.TryGetComboBoxData(comboBoxSelectBook, out book))
+            book = null;
+            if (comboBoxSelectBook.SelectedItem != null)
+            {
+                book = BookList.GetByName(comboBoxSelectBook.SelectedItem.ToString());
+            }
+            if (book is null == false)
             {
                 try
                 {
@@ -42,7 +44,8 @@ namespace BooksLibrary
             }
             else
             {
-                General.ShowMessageAndClear("Книга не найдена!", textBoxAmount);
+                MessageBox.Show("Книга не найдена!");
+                textBoxAmount.Text = "0";
                 return;
             }
         }
@@ -50,9 +53,15 @@ namespace BooksLibrary
         private void comboBoxSelectBook_SelectedIndexChanged(object sender, EventArgs e)
         {
             Book book;
-            if (General.TryGetComboBoxData(comboBoxSelectBook, out book) == false)
+            book = null;
+            if (comboBoxSelectBook.SelectedItem != null)
             {
-                General.ShowMessageAndClear("Книга не найдена!", textBoxAmount);
+                book = BookList.GetByName(comboBoxSelectBook.SelectedItem.ToString());
+            }
+            if (book is null == false)
+            {
+                MessageBox.Show("Книга не найдена!");
+                textBoxAmount.Text = "0";
             }
         }
     }

@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using BooksLibrary.SupportMethods;
 using CBookLib;
 
 namespace BooksLibrary
@@ -24,14 +16,24 @@ namespace BooksLibrary
             Book book;
             if (comboBoxSelectBook.SelectedItem != null)
             {
-                if (General.TryGetComboBoxData(comboBoxSelectBook, out book))
+                book = null;
+                if (comboBoxSelectBook.SelectedItem != null)
+                {
+                    book = BookList.GetByName(comboBoxSelectBook.SelectedItem.ToString());
+                }
+                if (book is null == false)
                 {
                     try
                     {
                         BookList.Delete(book);
                         MessageBox.Show("Книга удалена!");
                         comboBoxSelectBook.Items.Clear();
-                        General.AddBooksToComboBox(comboBoxSelectBook);
+                        var books = BookList.Books.List;
+
+                        foreach (var bookItem in books)
+                        {
+                            comboBoxSelectBook.Items.Add(bookItem.Name);
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -48,7 +50,12 @@ namespace BooksLibrary
 
         private void DeleteBook_Load(object sender, EventArgs e)
         {
-            General.AddBooksToComboBox(comboBoxSelectBook);
+            var books = BookList.Books.List;
+
+            foreach (var bookItem in books)
+            {
+                comboBoxSelectBook.Items.Add(bookItem.Name);
+            }
         }
     }
 }

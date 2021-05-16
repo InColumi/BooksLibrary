@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using CBookLib;
-using BooksLibrary.SupportMethods;
 
 namespace BooksLibrary
 {
@@ -21,7 +13,12 @@ namespace BooksLibrary
 
         private void StatsBook_Load(object sender, EventArgs e)
         {
-            General.AddBooksToComboBox(comboBoxMenuGetStat);
+            var books = BookList.Books.List;
+
+            foreach (var bookItem in books)
+            {
+                comboBoxMenuGetStat.Items.Add(bookItem.Name);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
